@@ -46,6 +46,7 @@ jobs:
         run : |
           ${{ github.workspace }}/patcher
           mkdir out
+          curl -L https://github.com/enmity-mod/tweak/releases/latest/download/enmity.deb -o out/enmity.deb
 
       - name: Create Enmity.ipa
         run : |

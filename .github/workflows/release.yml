@@ -46,12 +46,15 @@ jobs:
         run : |
           ${{ github.workspace }}/patcher
           mkdir out
-          curl -L https://github.com/enmity-mod/tweak/releases/latest/download/enmity.deb -o out/enmity.deb
+
+      - name: Download package
+        run: |
+          curl -L https://github.com/enmity-mod/tweak/releases/latest/download/Enmity.deb -o out/enmity.deb
 
       - name: Create Enmity.ipa
         run : |
           ${{ github.workspace }}/Azule/azule -i Enmity.ipa -o out -f out/enmity.deb
-          mv out/Enmity+enmity.deb.ipa out/enmity.ipa
+          mv out/Enmity+enmity.deb.ipa out/Enmity.ipa
 
       - name: Create release
         uses: softprops/action-gh-release@v1
